@@ -188,11 +188,17 @@ Future<void> _generateQuestion() async{
   final content = [Content.text(prompt + input)];
   final response = await model.generateContent(content);
   final result = response.text;
-  final obj = jsonEncode(result);
-  final questions= jsonDecode(obj);
-  // Arrays to store questions and options
-  print(questions);
-  //print('Question : ${questions['questions']}');
+  String obj = result.toString();
+  List<dynamic> dataList = jsonDecode(obj);
+
+
+  for (var data in dataList) {
+    List<String> options = List<String>.from(data['options']);
+    print('Question: ${data['question']}');
+    for (var option in options) {
+      print('  - $option');
+    }
+  }
 
   // print(response.text);
 }
