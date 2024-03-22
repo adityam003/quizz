@@ -4,8 +4,8 @@ import 'package:lottie/lottie.dart';
 import 'QuizScreen.dart';
 import 'ProfileScreen.dart';
 import 'ChatBot.dart';
-
-
+import 'settings_screen.dart';
+import 'LiveContest.dart';
 class HomeScreen extends StatelessWidget{
   HomeScreen();
   @override
@@ -18,40 +18,148 @@ class HomeScreen extends StatelessWidget{
      style: GoogleFonts.suezOne(fontSize:30),)
      )
      ),
-       drawer: Drawer(
-         backgroundColor: Color(0xFF2BCAFF),
-       child: ListView(
-       padding: EdgeInsets.zero,
-       children: <Widget>[
-       Container(
-       height: 150, // Set the desired height for the custom header
-       color: Color(0xFF2BCAFF), // Set the background color
-       child: Center(
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.start,
-           crossAxisAlignment: CrossAxisAlignment.center,
-           children: [
-             SizedBox(width: 20), // Adjust the spacing as needed
-             Icon(
-               Icons.handshake, // Add handshake icon
-               size: 40, // Adjust size as needed
-               color: Colors.white, // Set icon color
-             ),
-             SizedBox(width: 10), // Add some space between the icon and text
-             Text(
-               'Welcome',
-               style: TextStyle(
-                 color: Colors.white,
-                 fontSize: 24,
-               ),
-             ),
-           ],
-         ),
-       ),
-       ),
-       ],
-   ),
-       ),
+   //     drawer: Drawer(
+   //       backgroundColor: Color(0xFF2BCAFF),
+   //     child: ListView(
+   //     padding: EdgeInsets.zero,
+   //     children: <Widget>[
+   //     Container(
+   //     height: 150, // Set the desired height for the custom header
+   //    // color: Color(0xFF2BCAFF), // Set the background color
+   //     child: Center(
+   //       child: Row(
+   //         mainAxisAlignment: MainAxisAlignment.start,
+   //         crossAxisAlignment: CrossAxisAlignment.center,
+   //         children: [
+   //           SizedBox(width: 20), // Adjust the spacing as needed
+   //           Icon(
+   //             Icons.handshake, // Add handshake icon
+   //             size: 40, // Adjust size as needed
+   //             color: Colors.black, // Set icon color
+   //           ),
+   //           SizedBox(width: 8,height: 10,), // Add some space between the icon and text
+   //           Text(
+   //             '  Welcome',
+   //             style: TextStyle(
+   //               color: Colors.white,
+   //               fontSize: 24,
+   //             ),
+   //           ),
+   //         ],
+   //       ),
+   //     ),
+   //     ),
+   //     ],
+   // ),
+   //     ),
+    drawer: Drawer(
+      backgroundColor: Color(0xFF2BCAFF),
+    child: ListView(
+    padding: EdgeInsets.zero,
+    children: <Widget>[
+    Container(
+    height: 150, // Set the desired height for the custom header
+    //color: Colors.blue, // Set the background color
+    child: Center(
+    child: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+    SizedBox(width: 20), // Adjust the spacing as needed
+    Icon(
+    Icons.handshake, // Add handshake icon
+    size: 40, // Adjust size as needed
+    color: Colors.black, // Set icon color
+    ),
+    SizedBox(width: 10), // Add some space between the icon and text
+    Text(
+    'Welcome',
+    style: TextStyle(
+    color: Colors.white,
+    fontSize: 24,
+    ),
+    ),
+    ],
+    ),
+    ),
+    ),
+    ListTile(
+    leading: Icon(Icons.person), // Add icon for profile
+    title: Text('Profile'),
+    onTap: () {
+    // Navigate to profile screen
+    Navigator.pop(context);
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ProfileScreen()),
+    );
+    },
+    ),
+    ListTile(
+    leading: Icon(Icons.summarize), // Add icon for live contest
+    title: Text('Summarize'),
+    onTap: () {
+    // Implement navigation to live contest screen
+    // Navigator.pop(context);
+    // Navigator.push(
+    // context,
+    // MaterialPageRoute(builder: (context) => LiveContest()),
+    //);
+    // Add navigation logic here
+    },
+    ),
+    //
+    // ListTile(
+    // leading: Icon(Icons.live_tv), // Add icon for live contest
+    // title: Text('Live Contest'),
+    // onTap: () {
+    // // Implement navigation to live contest screen
+    // // Navigator.pop(context);
+    // // Navigator.push(
+    // // context,
+    // // MaterialPageRoute(builder: (context) => LiveContest()),
+    // //);
+    // // Add navigation logic here
+    // },
+    // ),
+    ListTile(
+    leading: Icon(Icons.settings), // Add icon for settings
+    title: Text('Settings'),
+      onTap:(){
+        Navigator.pop(context);
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SettingsScreen()),
+        );
+      }
+    ),
+    // ListTile(
+    // leading: Icon(Icons.leaderboard), // Add icon for scoreboard
+    // title: Text('Scoreboard'), // Add text for scoreboard
+    // onTap: () {
+    // // Navigator.pop(context);
+    // //Navigator.push(
+    // // context,
+    // // MaterialPageRoute(builder: (context) => Scoreboard()), // Navigate to scoreboard screen
+    // // );
+    // },
+    // ),
+      SizedBox(height: 463), // Add some space between the list items and the sign out button
+      ListTile( // Sign out button
+        onTap: () {
+          // Implement sign out functionality
+        },
+        title: Center(
+          child: Text(
+            'Sign Out',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        tileColor: Colors.red, // Set background color to red
+      ),
+    ],
+    ),
+    ),
        bottomNavigationBar: SafeArea(
 
        child: Container(
@@ -77,8 +185,13 @@ class HomeScreen extends StatelessWidget{
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
                 ),
                   IconButton(
-                  onPressed: (){},
-                icon: Icon(Icons.quiz),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LiveContest()), // Replace Contest1() with your next page widget
+                    );
+                  },
+                icon: Icon(Icons.quiz_rounded),
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
                 ),
                   IconButton(

@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "834418212472",
-    "project_id": "quiz233",
-    "storage_bucket": "quiz233.appspot.com"
+    "project_number": "830323234461",
+    "project_id": "physics-proj",
+    "storage_bucket": "physics-proj.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:834418212472:android:7656a3e742b3e1d2b1f78d",
-        "android_client_info": {
-          "package_name": "com.example.aniket"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBNPOwkzIFxlMI2iY8mPNYEDTVPYCISvwc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:834418212472:android:5e05e5c149be51a1b1f78d",
+        "mobilesdk_app_id": "1:830323234461:android:467169bf3b89e887172674",
         "android_client_info": {
           "package_name": "com.example.app"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBNPOwkzIFxlMI2iY8mPNYEDTVPYCISvwc"
+          "current_key": "AIzaSyDVvyW702GXsNd1NZvThMQZ3WVYL1RaHYw"
         }
       ],
       "services": {

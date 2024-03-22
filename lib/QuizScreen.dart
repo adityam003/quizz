@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,10 +9,6 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ScoreCardScreen.dart';
-import 'save_file_mobile_and_desktop.dart'
-if (dart.library.html) 'save_file_web.dart';
-
-
 
 
 class MyHomePage extends StatefulWidget {
@@ -41,11 +36,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<String, dynamic> question5 = {};
   List<int> myList = List<int>.filled(5, 0);
   bool questionsGenerated = false;
+  bool pressed = false;
   @override
   void initState() {
     super.initState();
     _generateQuestion(); // Call generateQuestion on initialization
   }
+ void userPressed() {
+    setState(() {
+      pressed = true;
+    });
+ }
 
   Widget build(BuildContext context) {
 
@@ -154,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     // For text-only input, use the gemini-pro model
     final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
-    const String prompt = '''from the given input create 5 questions in json and give 4 mcq type options for each question and answer in json(strictly follow the pattern and no extra word or character and start with square bracket directly no back ticks) following is the pattern
+    const String prompt = '''from the given input create 5 questions in json and give 4 mcq type options for each question and answer in json(strictly follow the pattern and no extra word or character and start with square bracket directly no back ticks) following is the pattern and also the options should be short 2 to 4 words
   [{
     "question": "Which of the following is a major river in India?",
     "options": [
@@ -248,6 +249,7 @@ class FinalScreen extends StatelessWidget {
 
 
 class MyNextScreen extends StatelessWidget {
+
   final Map<String, dynamic> question1;
   final Map<String, dynamic> question2;
   final Map<String, dynamic> question3;
@@ -268,6 +270,7 @@ class MyNextScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -348,7 +351,6 @@ class MyNextScreen extends StatelessWidget {
     Color color = Color(int.parse(colorString)); // Convert string to color
     Color option = Colors.white;
     Color fontColor = Colors.black;
-    List<bool> Pressed ;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
       color: color, // Set background color here
@@ -379,11 +381,11 @@ class MyNextScreen extends StatelessWidget {
                         selectedOption = option.toString();
                         // Call the function to handle option selection
                         handleOptionSelection(selectedOption, number);
-
                       },
                       child: SizedBox( // Wrap Text with SizedBox
                         width: double.infinity, // Set width to match parent
                         child: Container(
+
                           margin: EdgeInsets.only(left: 12), // Add left margin of 30
                           child: Text(
                             option.toString(),
@@ -392,8 +394,7 @@ class MyNextScreen extends StatelessWidget {
                               textStyle: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
-                                color:Colors.black
-                                ,
+                                  color:Colors.black,
                               ),
                             ),
                           ),

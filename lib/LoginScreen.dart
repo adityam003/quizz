@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'SignupScreen.dart';
 import 'package:app/HomeScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+Future<void> main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(LoginScreen());
+}
 
 class LoginScreen extends StatelessWidget{
   final TextEditingController _emailController = TextEditingController();
@@ -90,9 +98,18 @@ class LoginScreen extends StatelessWidget{
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
+                        TextButton(onPressed: (){
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => HomeScreen())
+                          );
+
+                        },
+                       child:  Text(
                           'Log In',
                           style: TextStyle(color: Colors.white),
+                        ),
                         ),
                         Icon(Icons.arrow_forward, color: Colors.white),
                       ],

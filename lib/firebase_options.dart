@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCm-JpCVBRU92B0R7yx3mUR84xgbt68-j0',
-    appId: '1:834418212472:web:ca8bbce709257cd7b1f78d',
-    messagingSenderId: '834418212472',
-    projectId: 'quiz233',
-    authDomain: 'quiz233.firebaseapp.com',
-    storageBucket: 'quiz233.appspot.com',
-    measurementId: 'G-0VMC8QSHNM',
+    apiKey: 'AIzaSyDdMGzSnTyTTNhobdNrBvtUrFSOmEbFIIg',
+    appId: '1:830323234461:web:661f32b4555a67cd172674',
+    messagingSenderId: '830323234461',
+    projectId: 'physics-proj',
+    authDomain: 'physics-proj.firebaseapp.com',
+    storageBucket: 'physics-proj.appspot.com',
+    measurementId: 'G-M0YWK2E8QM',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBNPOwkzIFxlMI2iY8mPNYEDTVPYCISvwc',
-    appId: '1:834418212472:android:5e05e5c149be51a1b1f78d',
-    messagingSenderId: '834418212472',
-    projectId: 'quiz233',
-    storageBucket: 'quiz233.appspot.com',
+    apiKey: 'AIzaSyDVvyW702GXsNd1NZvThMQZ3WVYL1RaHYw',
+    appId: '1:830323234461:android:467169bf3b89e887172674',
+    messagingSenderId: '830323234461',
+    projectId: 'physics-proj',
+    storageBucket: 'physics-proj.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCrwnqY2bMJ6luaPlmW-fH2wsgkFwjfdZE',
-    appId: '1:834418212472:ios:b33edc7a2c2992cbb1f78d',
-    messagingSenderId: '834418212472',
-    projectId: 'quiz233',
-    storageBucket: 'quiz233.appspot.com',
+    apiKey: 'AIzaSyD2R1n4evJcDmj7ss7OEscWtjIPDO7rdeI',
+    appId: '1:830323234461:ios:c350c64efa025100172674',
+    messagingSenderId: '830323234461',
+    projectId: 'physics-proj',
+    storageBucket: 'physics-proj.appspot.com',
     iosBundleId: 'com.example.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCrwnqY2bMJ6luaPlmW-fH2wsgkFwjfdZE',
-    appId: '1:834418212472:ios:a2b6d0400c64e49fb1f78d',
-    messagingSenderId: '834418212472',
-    projectId: 'quiz233',
-    storageBucket: 'quiz233.appspot.com',
+    apiKey: 'AIzaSyD2R1n4evJcDmj7ss7OEscWtjIPDO7rdeI',
+    appId: '1:830323234461:ios:15a8d6ee7c55064f172674',
+    messagingSenderId: '830323234461',
+    projectId: 'physics-proj',
+    storageBucket: 'physics-proj.appspot.com',
     iosBundleId: 'com.example.app.RunnerTests',
   );
 }
