@@ -14,9 +14,10 @@ class HomeScreen extends StatelessWidget{
      backgroundColor: Color(0xFF2BCAFF),
      appBar: AppBar(
        backgroundColor: Color(0xFF2BCAFF),
-     title: Center(child: Text("Quizzlet",
-     style: GoogleFonts.suezOne(fontSize:30),)
-     )
+     title: Padding(padding:EdgeInsets.fromLTRB(65, 0, 0, 0),
+         child: Text("Quizzlet",
+     style: GoogleFonts.suezOne(fontSize:30),
+     ))
      ),
    //     drawer: Drawer(
    //       backgroundColor: Color(0xFF2BCAFF),
@@ -227,7 +228,7 @@ class HomeScreen extends StatelessWidget{
            Align(
              alignment: Alignment.topLeft,
            child: Padding(
-             padding: EdgeInsets.fromLTRB(13, 20, 0, 0),
+             padding: EdgeInsets.fromLTRB(13, 20, 0, 20),
             child: Text("Fly Towards Your\nLearning\nJourney",
            style: GoogleFonts.suezOne(fontSize:24,
              color: Color(0xFF433C3C),
@@ -248,16 +249,28 @@ class HomeScreen extends StatelessWidget{
 
            ),
 
-         Align(
-           alignment: FractionalOffset(0.5,0.3),
-         child: Text(
-           "Upload your file",
-           style: GoogleFonts.stylish(fontSize:20),
-           textAlign: TextAlign.end,
+         // Align(
+         //   alignment: FractionalOffset(0.5,0.3),
+         // child: Text(
+         //   "Upload your file",
+         //   style: GoogleFonts.stylish(fontSize:20),
+         //  //err textAlign: TextAlign.center,
+         //
+         // ),
+         //
+         // ),
+           Align(
+               alignment: Alignment.topLeft,
+               child: Padding(
+                   padding: EdgeInsets.fromLTRB(110, 150, 0, 10),
+                   child: Text("Upload Your File",
+                     style: GoogleFonts.stylish(fontSize:25,
+                       color: Color(0xFF433C3C),
 
-         ),
-
-         ),
+                     ),
+                   )
+               )
+           ),
           TextButton(onPressed: (){
 
             Navigator.push(
@@ -268,12 +281,12 @@ class HomeScreen extends StatelessWidget{
 
           },
           child: Text("Upload",
-          style: GoogleFonts.inter(fontSize:12,
+          style: GoogleFonts.inter(fontSize:18,
           fontWeight: FontWeight.bold,
           color: Colors.white),),
             style:TextButton.styleFrom(
               backgroundColor: Colors.black,
-              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15)
+              padding: EdgeInsets.symmetric(horizontal: 30,vertical: 15)
             ),
           ),
 //            SizedBox(height:20),

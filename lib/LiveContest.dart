@@ -67,14 +67,14 @@ class LiveContest extends StatelessWidget {
             },
             child: buildContainer('Computer Science', Random().nextInt(11)),
           ),
-          Padding(
+         const Padding(
             padding: EdgeInsets.all(20.0),
             child: Text(
               'Upcoming',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           EmptyLoadingBar(), // Add empty loading bar here
         ],
       ),
@@ -104,14 +104,14 @@ class LiveContest extends StatelessWidget {
                     subject,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
-                  Spacer(),
-                  Text(
+                const Spacer(),
+                const Text(
                     '20Q',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Row(
                 children: [
                   Text(
@@ -119,8 +119,8 @@ class LiveContest extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 5),
-              Container(
+            const SizedBox(height: 5),
+             Container(
                 width: double.infinity,
                 height: 10,
                 child: LinearProgressIndicator(

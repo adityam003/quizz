@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     // For text-only input, use the gemini-pro model
     final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
-    const String prompt = '''from the given input create 5 questions in json and give 4 mcq type options for each question and answer in json(strictly follow the pattern and no extra word or character and start with square bracket directly no back ticks) following is the pattern and also the options should be short 2 to 4 words
+    const String prompt = '''from the given input create 5 questions in json and give 4 mcq type options for each question and answer in json(strictly follow the pattern and no extra word or character and start with square bracket directly no back ticks) following is the pattern and also the options should be short 2 to 4 words and answer should be random from the option
   [{
     "question": "Which of the following is a major river in India?",
     "options": [
@@ -402,6 +402,7 @@ class MyNextScreen extends StatelessWidget {
                       ),
 
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
                         minimumSize: Size(double.infinity, 40), // Set minimum height
                         padding: EdgeInsets.symmetric(horizontal: 10), // Reduce padding
                         shape: RoundedRectangleBorder( // Rounded corners for box-like appearance
