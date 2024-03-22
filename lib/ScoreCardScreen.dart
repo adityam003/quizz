@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'HomeScreen.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -137,7 +138,9 @@ class _ScoreboardState extends State<Scoreboard> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomeScreen()));
                       },
                       style: ButtonStyle(
                         backgroundColor:

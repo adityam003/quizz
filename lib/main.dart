@@ -1,28 +1,8 @@
-
-
-import 'dart:convert';
-import 'ExtractTextFromPdf.dart';
 import 'package:app/HomeScreen.dart';
-import 'package:app/LoginScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:file_picker/file_picker.dart';
-import 'dart:io';
-import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:syncfusion_flutter_pdf/pdf.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'save_file_mobile_and_desktop.dart'
-if (dart.library.html) 'save_file_web.dart';
-
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  //
-  // await Supabase.initialize(
-  //   url: 'YOUR_SUPABASE_URL',
-  //   anonKey: 'YOUR_SUPABASE_ANON_KEY',
-  // );
+
   runApp(MyApp());
 }
 

@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<String, dynamic> question4 = {};
   Map<String, dynamic> question5 = {};
   List<int> myList = List<int>.filled(5, 0);
+  bool questionsGenerated = false;
   @override
   void initState() {
     super.initState();
@@ -57,9 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
     )
     ),
     body: Center(
-      child: Column(
+      child: questionsGenerated?  Column(
           children: [
-            TextButton(onPressed: () => _ScreenNav(
+           Center(child: TextButton(onPressed: () => _ScreenNav(
               context,
               MyNextScreen(
                 context: context,
@@ -79,9 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
     style: ButtonStyle(
     backgroundColor: MaterialStateProperty.resolveWith(
     (states) => Colors.blue)),
-            ),
+
+           )
+           ),
           ],
-      ),
+      ): CircularProgressIndicator(),
 
 
     )
@@ -188,12 +191,15 @@ class _MyHomePageState extends State<MyHomePage> {
         print('  - $option');
       }
     }
-
+  setState(() {
     question1 = dataList[0];
     question2 = dataList[1];
     question3 = dataList[2];
     question4 = dataList[3];
     question5 = dataList[4];
+    questionsGenerated = true;
+  });
+
   }
 }
 
@@ -340,8 +346,9 @@ class MyNextScreen extends StatelessWidget {
       colorString = '0xFFFF5151';
     }
     Color color = Color(int.parse(colorString)); // Convert string to color
-
-
+    Color option = Colors.white;
+    Color fontColor = Colors.black;
+    List<bool> Pressed ;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
       color: color, // Set background color here
@@ -372,6 +379,7 @@ class MyNextScreen extends StatelessWidget {
                         selectedOption = option.toString();
                         // Call the function to handle option selection
                         handleOptionSelection(selectedOption, number);
+
                       },
                       child: SizedBox( // Wrap Text with SizedBox
                         width: double.infinity, // Set width to match parent
@@ -384,7 +392,8 @@ class MyNextScreen extends StatelessWidget {
                               textStyle: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color:Colors.black
+                                ,
                               ),
                             ),
                           ),

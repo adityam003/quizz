@@ -50,6 +50,8 @@ dependencies:
   url_launcher: ^6.2.5
   dash_chat_2: ^0.0.20
   supabase_flutter: ^2.3.4
+  firebase_auth: ^4.17.9
+  firebase_core: ^2.27.1
 
 dev_dependencies:
   flutter_test:

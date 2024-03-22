@@ -93,7 +93,7 @@ class _ChatbotState extends State<Chatbot> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white, // Set background color of the app bar
+        backgroundColor: Color(0xFF2BCAFF), // Set background color of the app bar
         title: Row(
           children: [
             GestureDetector(

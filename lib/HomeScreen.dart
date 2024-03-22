@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget{
            ),
            Align(
              alignment: Alignment.center,
-             child: Lottie.network("https://lottie.host/fe13b77e-3933-4c69-ba76-54eb458b538a/c7K43FuVj4.json",
+             child: Lottie.asset("assets/paperairplane.json",
                fit: BoxFit.fill,
                repeat: true,
                frameRate: FrameRate.max,
