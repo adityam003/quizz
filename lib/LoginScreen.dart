@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SignupScreen.dart';
+import 'package:app/HomeScreen.dart';
 
 class LoginScreen extends StatelessWidget{
   final TextEditingController _emailController = TextEditingController();
@@ -83,6 +84,7 @@ class LoginScreen extends StatelessWidget{
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
+
                       // Implement login functionality here
                     },
                     child: Row(
