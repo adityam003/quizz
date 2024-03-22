@@ -49,6 +49,7 @@ dependencies:
   flutter_spinkit: ^5.2.0
   url_launcher: ^6.2.5
   dash_chat_2: ^0.0.20
+  supabase_flutter: ^2.3.4
 
 dev_dependencies:
   flutter_test:

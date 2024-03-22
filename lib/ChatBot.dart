@@ -12,7 +12,7 @@ class Chatbot extends StatefulWidget {
 
 class _ChatbotState extends State<Chatbot> {
   ChatUser me = ChatUser(id: '1', firstName: 'megh');
-  ChatUser ai = ChatUser(id: '2', firstName: 'AskAI');
+  ChatUser ai = ChatUser(id: '2', firstName: 'AI');
   List<ChatMessage> allMessages = [];
   List<ChatUser> typing = [];
 

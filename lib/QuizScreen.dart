@@ -9,7 +9,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'ScoreCardScreen.dart';
 import 'save_file_mobile_and_desktop.dart'
 if (dart.library.html) 'save_file_web.dart';
 
@@ -417,7 +417,7 @@ class MyNextScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => FinalScreen("Hi", myList),
+                            builder: (context) => Scoreboard(myList),
                           ),
                         );
                       },
