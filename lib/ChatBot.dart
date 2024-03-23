@@ -77,7 +77,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void Superselect(String s) {
 
     if (s == 'A') {
-      systemInput = 'Your Name is Albert Einstein and play the role of him and explain and give responses as him';
+      systemInput = 'Your Name is Albert Einstein and play the role of him and explain and give responses as him and here is the context';
       character = "Einstein";
 
     } else if (s == 'T') {

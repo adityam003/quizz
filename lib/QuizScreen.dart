@@ -9,7 +9,7 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ScoreCardScreen.dart';
-
+import 'Summarize.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<int> myList = List<int>.filled(5, 0);
   bool questionsGenerated = false;
   bool pressed = false;
+  String input = 'No input';
   @override
   void initState() {
     super.initState();
@@ -61,6 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
     body: Center(
       child: questionsGenerated?  Column(
           children: [
+            Padding(
+            padding: EdgeInsets.fromLTRB(0, 40, 0, 30),
+            child: TextButton(onPressed:(){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Summarize(geminiText: input)),
+              );
+            } , child: Text("Summarize",  style: TextStyle(color: Colors.white),
+    ),
+    style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.resolveWith(
+    (states) => Colors.blue)),
+    ),),
            Center(child: TextButton(onPressed: () => _ScreenNav(
               context,
               MyNextScreen(
@@ -82,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
     backgroundColor: MaterialStateProperty.resolveWith(
     (states) => Colors.blue)),
 
-           )
+           ),
            ),
           ],
       ): CircularProgressIndicator(),
@@ -177,7 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
   "answer": "New Delhi"
   },
   ]''';
-    String input =  await _extractTextFromPDF();
+    input =  await _extractTextFromPDF();
     final content = [Content.text(prompt + input)];
     final response = await model.generateContent(content);
     final result = response.text;
