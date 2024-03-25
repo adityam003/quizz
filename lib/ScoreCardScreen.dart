@@ -483,76 +483,76 @@ class _ScoreboardState extends State<Scoreboard> {
     // });
 
    // _updatePercentage();
-  }
-//
-//   void _reviewAnswers(List<int> correctIndices, List<int> incorrectIndices) {
-//     Navigator.push(
-//       context,
-//       MaterialPageRoute(
-//         builder: (context) => ReviewScreen(
-//           correctIndices: correctIndices,
-//           incorrectIndices: incorrectIndices,
-//         ),
-//       ),
-//     );
-//   }
-// }
+//  }
 
-// class ReviewScreen extends StatelessWidget {
-//   final List<int> correctIndices;
-//   final List<int> incorrectIndices;
-//
-//   ReviewScreen({required this.correctIndices, required this.incorrectIndices});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Review'),
-//       ),
-//       body: DefaultTabController(
-//         length: 2,
-//         child: Column(
-//           children: [
-//             TabBar(
-//               tabs: [
-//                 Tab(text: 'Correct'),
-//                 Tab(text: 'Incorrect'),
-//               ],
-//               indicatorColor: Colors.blue,
-//               labelColor: Colors.blue,
-//               unselectedLabelColor: Colors.black,
-//             ),
-//             Expanded(
-//               child: TabBarView(
-//                 children: [
-//                   _buildReviewList(correctIndices),
-//                   _buildReviewList(incorrectIndices),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   Widget _buildReviewList(List<int> indices) {
-//     return ListView.builder(
-//       itemCount: indices.length,
-//       itemBuilder: (context, index) {
-//         return ListTile(
-//           title: Text('Question ${indices[index]}'),
-//           subtitle: Text('Option: ${_generateOption(indices[index])}'),
-//         );
-//       },
-//     );
-//   }
-//
-//   String _generateOption(int questionNumber) {
-//     // Here you can replace this logic with your own logic to generate options
-//     // For now, let's generate a random option (A, B, C, D)
-//     List<String> options = ['A', 'B', 'C', 'D'];
-//     return options[Random().nextInt(options.length)];
-//   }
-// }
+  void _reviewAnswers(List<int> correctIndices, List<int> incorrectIndices) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReviewScreen(
+          correctIndices: correctIndices,
+          incorrectIndices: incorrectIndices,
+        ),
+      ),
+    );
+  }
+}
+
+class ReviewScreen extends StatelessWidget {
+  final List<int> correctIndices;
+  final List<int> incorrectIndices;
+
+  ReviewScreen({required this.correctIndices, required this.incorrectIndices});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Review'),
+      ),
+      body: DefaultTabController(
+        length: 2,
+        child: Column(
+          children: [
+            TabBar(
+              tabs: [
+                Tab(text: 'Correct'),
+                Tab(text: 'Incorrect'),
+              ],
+              indicatorColor: Colors.blue,
+              labelColor: Colors.blue,
+              unselectedLabelColor: Colors.black,
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  _buildReviewList(correctIndices),
+                  _buildReviewList(incorrectIndices),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReviewList(List<int> indices) {
+    return ListView.builder(
+      itemCount: indices.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('Question ${indices[index]}'),
+          subtitle: Text('Option: ${_generateOption(indices[index])}'),
+        );
+      },
+    );
+  }
+
+  String _generateOption(int questionNumber) {
+    // Here you can replace this logic with your own logic to generate options
+    // For now, let's generate a random option (A, B, C, D)
+    List<String> options = ['A', 'B', 'C', 'D'];
+    return options[Random().nextInt(options.length)];
+  }
+}

@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:app/ChatBot.dart';
+import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,17 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<String, dynamic> question5 = {};
   List<int> myList = List<int>.filled(5, 0);
   bool questionsGenerated = false;
-  bool pressed = false;
+  bool pressed = true;
   String input = 'No input';
   @override
   void initState() {
     super.initState();
     _generateQuestion(); // Call generateQuestion on initialization
   }
- void userPressed() {
+ bool userPressed() {
     setState(() {
       pressed = true;
     });
+    return pressed;
  }
 
   Widget build(BuildContext context) {
@@ -55,13 +58,31 @@ class _MyHomePageState extends State<MyHomePage> {
     backgroundColor: Color(0xFF2BCAFF),
     appBar: AppBar(
     backgroundColor: Color(0xFF2BCAFF),
-    title: Center(child: Text("Quizzlet",
-    style: GoogleFonts.suezOne(fontSize:30),)
+        title: Padding(padding:EdgeInsets.fromLTRB(65, 0, 0, 0),
+            child: Text("Quizzlet",
+              style: GoogleFonts.suezOne(fontSize:30),
+            )
     )
     ),
     body: Center(
       child: questionsGenerated?  Column(
           children: [
+            Image.asset("assets/penguin.png"),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+              child: TextButton(onPressed:(){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Chatbot(content: input,)),
+                );
+              } , child: Text("Chat with File",  style: TextStyle(color: Colors.white),
+              ),
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all(Size(350, 50)),
+                    backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.black),
+                ),
+              ),),
             Padding(
             padding: EdgeInsets.fromLTRB(0, 40, 0, 30),
             child: TextButton(onPressed:(){
@@ -72,8 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
             } , child: Text("Summarize",  style: TextStyle(color: Colors.white),
     ),
     style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.resolveWith(
-    (states) => Colors.blue)),
+        minimumSize: MaterialStateProperty.all(Size(350, 50)),
+        backgroundColor: MaterialStateProperty.resolveWith(
+    (states) => Colors.black)),
     ),),
            Center(child: TextButton(onPressed: () => _ScreenNav(
               context,
@@ -85,6 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 question4: question4,
                 question5: question5,
                 myList: myList,
+                isPressed: pressed,
               ),
 
                 ),
@@ -93,8 +116,9 @@ class _MyHomePageState extends State<MyHomePage> {
     style: TextStyle(color: Colors.white),
     ),
     style: ButtonStyle(
+        minimumSize: MaterialStateProperty.all(Size(350, 50)),
     backgroundColor: MaterialStateProperty.resolveWith(
-    (states) => Colors.blue)),
+    (states) => Colors.black)),
 
            ),
            ),
@@ -271,6 +295,7 @@ class MyNextScreen extends StatelessWidget {
   final Map<String, dynamic> question5;
   final List<int> myList;
   final BuildContext context;
+  final bool isPressed;
 
   const MyNextScreen({
     Key? key,
@@ -281,6 +306,7 @@ class MyNextScreen extends StatelessWidget {
     required this.question4,
     required this.question5,
     required this.myList,
+    required this.isPressed,
   }) : super(key: key);
 
   @override
@@ -307,11 +333,11 @@ class MyNextScreen extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    _buildTabContent(1, question1),
-                    _buildTabContent(2, question2),
-                    _buildTabContent(3, question3),
-                    _buildTabContent(4, question4),
-                    _buildTabContent(5, question5),
+                    _buildTabContent(1, question1,isPressed),
+                    _buildTabContent(2, question2,isPressed),
+                    _buildTabContent(3, question3,isPressed),
+                    _buildTabContent(4, question4,isPressed),
+                    _buildTabContent(5, question5,isPressed),
                   ],
                 ),
               ),
@@ -326,7 +352,7 @@ class MyNextScreen extends StatelessWidget {
 
 
 
-  Widget _buildTabContent(int number, Map<String, dynamic> dataList) {
+  Widget _buildTabContent(int number, Map<String, dynamic> dataList,bool) {
     String question = dataList['question'];
     List<dynamic> options = dataList['options'];
     String answer = dataList['answer'];
@@ -395,11 +421,11 @@ class MyNextScreen extends StatelessWidget {
                         selectedOption = option.toString();
                         // Call the function to handle option selection
                         handleOptionSelection(selectedOption, number);
+                        isPressed;
                       },
                       child: SizedBox( // Wrap Text with SizedBox
                         width: double.infinity, // Set width to match parent
                         child: Container(
-
                           margin: EdgeInsets.only(left: 12), // Add left margin of 30
                           child: Text(
                             option.toString(),
@@ -408,7 +434,7 @@ class MyNextScreen extends StatelessWidget {
                               textStyle: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
-                                  color:Colors.black,
+                                  color:isPressed?Colors.black:Colors.white,
                               ),
                             ),
                           ),
@@ -416,7 +442,7 @@ class MyNextScreen extends StatelessWidget {
                       ),
 
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        backgroundColor: Colors.black,
                         minimumSize: Size(double.infinity, 40), // Set minimum height
                         padding: EdgeInsets.symmetric(horizontal: 10), // Reduce padding
                         shape: RoundedRectangleBorder( // Rounded corners for box-like appearance

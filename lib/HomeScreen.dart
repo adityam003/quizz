@@ -199,7 +199,7 @@ class HomeScreen extends StatelessWidget{
                   onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Chatbot()));
+                        MaterialPageRoute(builder: (context) => Chatbot(content: "no context yet",)));
                   },
                 icon: Icon(Icons.chat),
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
