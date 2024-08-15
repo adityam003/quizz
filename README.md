@@ -36,4 +36,6 @@ An AI-powered app that converts documents into interactive content. This app all
 5. **Participate in Contests**: Engage in various contests to test your knowledge and compete with others.
 6. **Track Your Progress**: Monitor your learning progress through your profile page.
 
+## Authors
+Aditya Murali , Prathamesh Jakkula and Aniket Giri.
 
